@@ -37,7 +37,7 @@ begin
                 if instr(31) = '0' then  -- positive
                     imm <= "0000000000000000000000" & instr(7) &  instr(30 downto 25) & instr(11 downto 9); -- div by 4, or shift left 2
                 else -- negative
-                    imm <= "1111111111111111111111" & instr(7) &  instr(30 downto 25) & instr(11 downto 9); -- div by 4, or shift left 2
+                    imm <= "111111111111111111111" & instr(7) &  instr(30 downto 25) & instr(11 downto 9) & '0'; -- div by 4, or shift left 2
                 end if;                
             when "1101111" => -- J
              
