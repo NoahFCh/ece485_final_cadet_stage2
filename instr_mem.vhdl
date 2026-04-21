@@ -29,17 +29,16 @@ architecture Behavioral of instr_mem is
         12 => x"00000000",
         13 => x"00000000",    
         14 => x"007503B3",                  -- add x7, x10, x7 
-        15 => x"00000000",                  -- NOP
-        16 => x"00000000",
+        15 => x"FFF28293",                  -- subi x5, x5, 1 (or   addi x5, x5, -1) 
+        16 => x"00000000",                 -- NOP
         17 => x"00000000",
-        18 => x"FFF28293",                  -- subi x5, x5, 1 (or   addi x5, x5, -1)  
-        19 => x"F80538E3",                  -- bne x5, x0, loop  original: 1111 1010 0000 0010 1001 1000 1110 0011 
+        18 => x"00000000",  
+        19 => x"F80298E3",                  -- bne x5, x0, loop  original: 1111 1010 0000 0010 1001 1000 1110 0011 
                                             --                   original imm: 11111101100
                                             --                   new imm: 1111 1100 1000 (-56) 
                                             --                   new: 1 111100 00000 00101 001 100 0 1 1100011
         20 => x"00000000",                  -- NOP
         21 => x"00000000",
-        --22 => x"00000000",      
         22 => x"FF9FF06F", -- done: j done            [-4; note: assumes PC is already incremented by 4]
         others => (others => '0')
     );
